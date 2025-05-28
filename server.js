@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const coffeeRoutes = require('./src/routes/coffeeRoutes');
-const paiementRoutes = require('./src/routes/paymentRoutes');
+const paymentRoutes = require('./src/routes/paymentRoutes');
 
 const app = express();
 
@@ -21,7 +21,7 @@ mongoose.connect('mongodb://localhost:27017/taskmanager', {
 app.use(express.json());
 
 app.use('/api/coffees', coffeeRoutes);
-app.use('/api/payment', paiementRoutes);
+app.use('/api/payment', paymentRoutes);
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Serveur démarré sur port ${PORT}`);
