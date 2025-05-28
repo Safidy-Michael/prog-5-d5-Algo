@@ -3,6 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const coffeeRoutes = require('./src/routes/coffeeRoutes');
 const paymentRoutes = require('./src/routes/paymentRoutes');
+const stockRoutes = require('./src/routes/stockRoutes');
 
 const app = express();
 
@@ -22,6 +23,8 @@ app.use(express.json());
 
 app.use('/api/coffees', coffeeRoutes);
 app.use('/api/payment', paymentRoutes);
+app.use('/api/stock', stockRoutes);
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Serveur démarré sur port ${PORT}`);
