@@ -17,3 +17,13 @@ exports.getAllCoffees = async (req, res) => {
         });
     }
 }
+
+exports.createCoffee = async (req, res) => {
+     try {
+    const newCoffee = new Coffee(req.body);
+    await newCoffee.save();
+    res.status(201).json(newCoffee);
+  } catch (error) {
+    res.status(400).json({ message: 'Erreur création café', error });
+  }
+};
